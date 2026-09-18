@@ -1,0 +1,332 @@
+<title>배너 스케줄 와이어프레임</title>
+<style>
+  :root {
+    --paper: #f6f5f1;
+    --surface: #ffffff;
+    --ink: #2a2b26;
+    --ink-soft: #7a7b72;
+    --ink-faint: #a9a89d;
+    --line: #c7c6bc;
+    --line-soft: #e2e1d8;
+    --accent: #5c7a5e;
+    --accent-soft: #dfe8de;
+    --warn: #a9793a;
+    --warn-soft: #f0e4d1;
+    --stop: #a6564b;
+    --stop-soft: #f2ddda;
+    --shadow: 0 1px 0 rgba(42,43,38,0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1c1d19;
+      --surface: #26271f;
+      --ink: #ece9df;
+      --ink-soft: #a3a294;
+      --ink-faint: #6f6e62;
+      --line: #47483d;
+      --line-soft: #33342c;
+      --accent: #8fb08e;
+      --accent-soft: #303c30;
+      --warn: #d1a35f;
+      --warn-soft: #3a3323;
+      --stop: #d18378;
+      --stop-soft: #3a2624;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1c1d19;
+    --surface: #26271f;
+    --ink: #ece9df;
+    --ink-soft: #a3a294;
+    --ink-faint: #6f6e62;
+    --line: #47483d;
+    --line-soft: #33342c;
+    --accent: #8fb08e;
+    --accent-soft: #303c30;
+    --warn: #d1a35f;
+    --warn-soft: #3a3323;
+    --stop: #d18378;
+    --stop-soft: #3a2624;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans KR", "Malgun Gothic", sans-serif;
+    padding-inline: max(20px, env(safe-area-inset-left, 0px));
+    padding-block: 40px 80px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  header.top {
+    display: flex; flex-direction: column; gap: 18px;
+    border-bottom: 1px solid var(--line); padding-bottom: 24px;
+  }
+  header.top .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.08em;
+    color: var(--ink-soft); text-transform: uppercase;
+  }
+  header.top h1 { font-size: 28px; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  header.top p.persona { color: var(--ink-soft); font-size: 15px; max-width: 62ch; line-height: 1.6; margin: 0; }
+
+  .problems { display: flex; flex-wrap: wrap; gap: 8px; }
+  .problem-chip {
+    display: flex; align-items: baseline; gap: 6px;
+    border: 1px solid var(--line); border-radius: 3px;
+    padding: 6px 10px; font-size: 13px; background: var(--surface);
+  }
+  .problem-chip .n { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: 12px; }
+
+  section.screen { display: flex; flex-direction: column; gap: 14px; }
+  .screen-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .screen-head h2 { font-size: 19px; margin: 0; }
+  .screen-head .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-soft);
+    border: 1px dashed var(--line); border-radius: 999px; padding: 3px 10px;
+  }
+
+  .frame {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .frame .chrome {
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 12px; border-bottom: 1px solid var(--line-soft);
+  }
+  .frame .chrome .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--line); }
+  .frame .chrome .url {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--ink-faint);
+    margin-left: 8px;
+  }
+  .frame .body { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+
+  /* --- Screen 1: List view --- */
+  .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .filters { display: flex; gap: 6px; }
+  .filter {
+    font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line);
+    color: var(--ink-soft); background: var(--surface);
+  }
+  .filter.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+  .btn-primary {
+    font-size: 13px; padding: 7px 14px; border-radius: 4px; border: 1px solid var(--ink);
+    background: var(--ink); color: var(--paper); font-weight: 600;
+  }
+
+  .banner-row {
+    display: flex; align-items: center; gap: 14px;
+    border: 1px solid var(--line-soft); border-radius: 5px; padding: 10px 12px;
+  }
+  .drag-handle { color: var(--ink-faint); font-size: 15px; cursor: grab; }
+  .thumb {
+    width: 56px; height: 40px; border-radius: 4px; flex-shrink: 0;
+    background: repeating-linear-gradient(45deg, var(--line-soft), var(--line-soft) 4px, var(--surface) 4px, var(--surface) 8px);
+    border: 1px solid var(--line);
+  }
+  .row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .row-main .title { font-size: 14px; font-weight: 600; }
+  .row-main .period { font-size: 12px; color: var(--ink-soft); font-family: "IBM Plex Mono", monospace; }
+  .badge { font-size: 11px; padding: 3px 9px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+  .badge.live { background: var(--accent-soft); color: var(--accent); }
+  .badge.wait { background: var(--warn-soft); color: var(--warn); }
+  .badge.done { background: var(--stop-soft); color: var(--stop); }
+  .order-input {
+    width: 34px; text-align: center; font-family: "IBM Plex Mono", monospace; font-size: 13px;
+    border: 1px solid var(--line); border-radius: 4px; padding: 4px 0; color: var(--ink-soft);
+  }
+
+  /* --- Screen 2: Detail/edit --- */
+  .detail-grid { display: grid; grid-template-columns: 200px 1fr; gap: 24px; }
+  .image-drop {
+    aspect-ratio: 4/3; border: 1px dashed var(--line); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px;
+    color: var(--ink-faint); font-size: 12px; text-align: center; padding: 10px;
+  }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field label { font-size: 12px; color: var(--ink-soft); }
+  .field .value {
+    border: 1px solid var(--line); border-radius: 4px; padding: 8px 10px; font-size: 14px;
+    background: var(--paper);
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .toggle-row { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+  .toggle { width: 34px; height: 19px; border-radius: 999px; background: var(--accent); position: relative; }
+  .toggle::after { content: ""; position: absolute; right: 2px; top: 2px; width: 15px; height: 15px; border-radius: 50%; background: var(--surface); }
+  .error-msg { font-size: 12px; color: var(--stop); font-family: "IBM Plex Mono", monospace; }
+  .form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+  .btn-ghost { font-size: 13px; padding: 7px 14px; border-radius: 4px; border: 1px solid var(--line); color: var(--ink-soft); }
+
+  /* --- Screen 3: Empty states --- */
+  .empty-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .empty-box {
+    border: 1px dashed var(--line); border-radius: 6px; padding: 28px 16px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+  }
+  .empty-icon {
+    width: 40px; height: 40px; border-radius: 8px; border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; color: var(--ink-faint); font-size: 18px;
+  }
+  .empty-box h3 { font-size: 14px; margin: 0; }
+  .empty-box p { font-size: 12px; color: var(--ink-soft); margin: 0; max-width: 24ch; line-height: 1.5; }
+  .empty-cta { font-size: 12px; padding: 6px 12px; border-radius: 4px; border: 1px solid var(--ink); color: var(--ink); }
+
+  .annot {
+    display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--ink-soft);
+    padding-top: 2px;
+  }
+  .annot .n {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 50%; width: 16px; height: 16px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+
+  footer.note {
+    border-top: 1px solid var(--line); padding-top: 18px; font-size: 12px; color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 560px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .empty-pair { grid-template-columns: 1fr; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">B2B 어드민 재설계 · Lo-fi Wireframe</div>
+    <h1>배너 스케줄 관리 — 와이어프레임</h1>
+    <p class="persona">홈쇼핑 MD(운영자)는 하루에도 여러 개의 프로모션 배너를 스케줄에 맞춰 등록·교체한다. 아래 3개 화면은 그 과정에서 드러난 문제를 해결하기 위한 구조 초안이다.</p>
+    <div class="problems">
+      <div class="problem-chip"><span class="n">01</span> 노출중/대기중 상태가 한눈에 안 보임</div>
+      <div class="problem-chip"><span class="n">02</span> 순서 변경이 직관적이지 않음</div>
+      <div class="problem-chip"><span class="n">03</span> 이미지 없는 빈 상태 기준 없음</div>
+    </div>
+  </header>
+
+  <section class="screen">
+    <div class="screen-head">
+      <h2>화면 1 — 배너 목록 (List View)</h2>
+      <span class="tag">문제 01 · 02 해결</span>
+    </div>
+    <div class="frame">
+      <div class="chrome"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url">admin.example.com/banners</div></div>
+      <div class="body">
+        <div class="toolbar">
+          <div class="filters">
+            <div class="filter active">전체</div>
+            <div class="filter">노출중</div>
+            <div class="filter">대기중</div>
+            <div class="filter">종료됨</div>
+          </div>
+          <div class="btn-primary">+ 새 배너 등록</div>
+        </div>
+
+        <div class="banner-row">
+          <div class="drag-handle">⠿</div>
+          <div class="order-input">1</div>
+          <div class="thumb"></div>
+          <div class="row-main">
+            <div class="title">여름 신상 원피스 프로모션</div>
+            <div class="period">09.18 – 09.24</div>
+          </div>
+          <div class="badge live">노출중</div>
+        </div>
+
+        <div class="banner-row">
+          <div class="drag-handle">⠿</div>
+          <div class="order-input">2</div>
+          <div class="thumb"></div>
+          <div class="row-main">
+            <div class="title">추석 선물세트 특가전</div>
+            <div class="period">09.25 – 10.02</div>
+          </div>
+          <div class="badge wait">대기중</div>
+        </div>
+
+        <div class="banner-row">
+          <div class="drag-handle">⠿</div>
+          <div class="order-input">3</div>
+          <div class="thumb"></div>
+          <div class="row-main">
+            <div class="title">여름 세일 마감 안내</div>
+            <div class="period">09.01 – 09.17</div>
+          </div>
+          <div class="badge done">종료됨</div>
+        </div>
+      </div>
+    </div>
+    <div class="annot"><span class="n">i</span> 상태 뱃지를 카드 우측에 색으로 고정 배치해 스캔 속도를 높이고, 드래그 핸들과 순번 입력을 함께 둬 두 가지 정렬 방식을 모두 지원.</div>
+  </section>
+
+  <section class="screen">
+    <div class="screen-head">
+      <h2>화면 2 — 배너 상세/편집 (Detail View)</h2>
+      <span class="tag">에러 상태 포함</span>
+    </div>
+    <div class="frame">
+      <div class="chrome"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url">admin.example.com/banners/1</div></div>
+      <div class="body">
+        <div class="detail-grid">
+          <div class="image-drop">이미지 업로드<br>또는 드래그</div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <div class="field"><label>타이틀</label><div class="value">여름 신상 원피스 프로모션</div></div>
+            <div class="field"><label>설명</label><div class="value">시원한 여름 원피스 20% 할인</div></div>
+            <div class="field-row">
+              <div class="field"><label>노출 시작일</label><div class="value">2026.09.18</div></div>
+              <div class="field"><label>노출 종료일</label><div class="value">2026.09.17</div></div>
+            </div>
+            <div class="error-msg">⚠ 종료일이 시작일보다 빠릅니다</div>
+            <div class="toggle-row"><div class="toggle"></div> 활성 상태로 노출</div>
+            <div class="form-actions">
+              <div class="btn-ghost">취소</div>
+              <div class="btn-primary">저장</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="annot"><span class="n">i</span> 저장 전 날짜 역전처럼 흔한 실수를 인라인 메시지로 바로 잡아줘, 별도 에러 화면 없이 이 폼 안에서 해결.</div>
+  </section>
+
+  <section class="screen">
+    <div class="screen-head">
+      <h2>화면 3 — 빈 상태 (Empty State)</h2>
+      <span class="tag">문제 03 해결</span>
+    </div>
+    <div class="frame">
+      <div class="chrome"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="url">admin.example.com/banners</div></div>
+      <div class="body">
+        <div class="empty-pair">
+          <div class="empty-box">
+            <div class="empty-icon">▢</div>
+            <h3>등록된 배너가 없습니다</h3>
+            <p>스케줄에 노출할 첫 배너를 등록해보세요.</p>
+            <div class="empty-cta">+ 첫 배너 등록하기</div>
+          </div>
+          <div class="empty-box">
+            <div class="empty-icon">▨</div>
+            <h3>이미지가 없습니다</h3>
+            <p>이 배너는 아직 이미지가 등록되지 않았습니다.</p>
+            <div class="empty-cta">이미지 등록</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="annot"><span class="n">i</span> Case A(배너 0개)와 Case B(개별 이미지 누락)를 구분 — 같은 "비어있음"이어도 유도할 행동이 다르다.</div>
+  </section>
+
+  <footer class="note">
+    저해상도 와이어프레임 · 구조/배치 확인용이며 색상·타이포는 최종 디자인이 아님 · 실제 시각 디자인은 Figma에서 별도 진행<br>
+    project: <span class="mono">portfolio-2026 / docs/case-studies/b2b-admin-redesign.md</span>
+  </footer>
+
+</div>
