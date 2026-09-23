@@ -41,7 +41,6 @@
 ## 케이스스터디로 다룰 플래그십 프로젝트 후보
 - Figma 디자인 시스템 작업 (T-Admin, 컴포넌트 구조: Badge/Toggle/Checkbox/Table Row 등)
 - 웹폰트 서브셋팅 워크플로우 (Spoqa Han Sans Neo, `local()` 네이밍 트러블슈팅 경험 포함)
-- **B2B 어드민 재설계** (홈쇼핑 배너 스케줄 관리 어드민을 처음부터 새로 설계한 개인 프로젝트, 실제 회사 화면 아님 — 진행 과정은 `docs/case-studies/b2b-admin-redesign.md` 참고)
 
 각 케이스스터디는 "배경/문제 → 과정(의사결정·트러블슈팅) → 결과" 구조로 작성.
 
