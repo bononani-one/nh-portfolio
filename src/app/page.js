@@ -6,12 +6,12 @@ const projects = [
   {
     badge:"TV App",
     title:"TV App 멀티클라이언트 플랫폼",
-    summary:"레거시 브라우저와 리모컨 포커스 제약안에서 여러 홈쇼핑사에 공급되는 화면 마크업으로 완성",
+    summary:"레거시 브라우저와 리모컨 포커스 제약 안에서 여러 홈쇼핑사에 공급되는 화면 마크업으로 완성",
   },
   {
     badge:"Responsive Web",
     title:"솔루션 홍보 홈페이지",
-    summary:"인터렉션,게시판 데이터 연동,문의 메일 처리까자 화면 넘어 로직까지 직접 구현",
+    summary:"인터랙션, 게시판 데이터 연동, 문의 메일 처리까지 화면 넘어 로직까지 직접 구현",
   },
   {
     badge:"KIOSK",
@@ -21,7 +21,7 @@ const projects = [
   {
     badge:"Design System",
     title:"Ui-system-guide",
-    summary:"화면마다 제각각이던 컴포넌트 규칙을 네이밍,상태정의부터 체계화한 퍼블리싱 표준문서(진행중)",
+    summary:"화면마다 제각각이던 컴포넌트 규칙을 네이밍, 상태 정의부터 체계화한 퍼블리싱 표준문서(진행중)",
   },
 ];
 const skillGroups=[
@@ -30,7 +30,7 @@ const skillGroups=[
     skills:[
       {name:'HTML5'},
       {name:'CSS3'},
-      {name:'Javascript'},
+      {name:'JavaScript'},
       {name:'jQuery'},
       {name:'Next.js'},
       {name:'반응형 웹'},
