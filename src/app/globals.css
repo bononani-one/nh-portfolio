@@ -31,6 +31,8 @@
   --color-text-sub: var(--text-sub);
   --color-point: var(--point);
 
+  --font-sans: var(--font-pretendard), sans-serif;
+
   --text-head: 40px;
   --text-section: 20px;
   --text-label: 12px;

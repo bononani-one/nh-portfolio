@@ -1,3 +1,5 @@
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import SkillGroup from "@/components/SkillGroup";
 import AboutBlock from "@/components/AboutBlock";
@@ -73,21 +75,29 @@ const skillGroups=[
 
 export default function Home(){
   return(
-    <main className="p-10 flex flex-col gap-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {projects.map((project)=>(
+   <main className="p-10 flex flex-col gap-16">
+      <Nav />
+      <Hero />
+      <div
+        id="work"
+        className="max-w-[1200px] mx-auto w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+      > 
+      {projects.map((project)=>(
           <ProjectCard key={project.title} {...project} />
         ))}
       </div>  
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        id="skill"
+        className="max-w-[1200px] mx-auto w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {skillGroups.map((group)=>(
           <SkillGroup key={group.label} {...group} />
         ))}
       </div>
-      <div className="flex flex-col gap-16 max-w-[1200]">
+       <div id="about" className="max-w-[1200px] mx-auto w-full flex flex-col gap-12">
           <h2 className="text-section font-bold text-text-default">ABOUT</h2>
           <AboutBlock label="Bio">
-            <p className="text-body text-text-default max-w-[700]">
+            <p className="text-body text-text-default max-w-[700px]">
               디지털 사이니지 업체에서 4년, 홈쇼핑 플랫폼 회사에서 5년째. 총 9년간 병원·대학·전통시장 같은 오프라인 
 설치 화면부터 TV App, 어드민 페이지까지 — 놓이는 맥락이 다르면 화면도 다르게 설계해왔습니다. 
 최근에는 화면을 그리는 데서 그치지 않고, 코드로 직접 완성하는 UI 엔지니어로 영역을 넓히고 있습니다.
