@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       lang="ko"
       className={`${pretendard.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-bg-default text-text-default">{children}</body>
     </html>
   );
 }

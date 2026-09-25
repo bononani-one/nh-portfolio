@@ -2,7 +2,7 @@ import Chip from '@/components/Chip';
 
 export default function Hero(){
     return(
-    <section id='hero' className='max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row gap-6 py-20'>
+    <section id='hero' className='max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row gap-6 py-10'>
         {/*왼쪽 텍스트 컬럼*/}
         <div className='flex flex-col gap-6 lg:w-[620px] shrink-0'>
             <Chip tone='accent'>Design-to-code</Chip>

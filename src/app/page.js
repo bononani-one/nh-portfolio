@@ -6,21 +6,25 @@ import AboutBlock from "@/components/AboutBlock";
 
 const projects = [
   {
+    href:'/work/tv-app',
     badge:"TV App",
     title:"TV App 멀티클라이언트 플랫폼",
     summary:"레거시 브라우저와 리모컨 포커스 제약 안에서 여러 홈쇼핑사에 공급되는 화면 마크업으로 완성",
   },
   {
+    href:'/work/responsive-web',
     badge:"Responsive Web",
     title:"솔루션 홍보 홈페이지",
     summary:"인터랙션, 게시판 데이터 연동, 문의 메일 처리까지 화면 넘어 로직까지 직접 구현",
   },
   {
+    href:'/work/kiosk',
     badge:"KIOSK",
     title:"키오스크 멀티디바이스 설계",
     summary:"다양한 업종 키오스크를 설치 맥락에 맞춰 각기 다르게 설계",
   },
   {
+    href: '/work/design-system',
     badge:"Design System",
     title:"Ui-system-guide",
     summary:"화면마다 제각각이던 컴포넌트 규칙을 네이밍, 상태 정의부터 체계화한 퍼블리싱 표준문서(진행중)",
@@ -145,7 +149,7 @@ export default function Home(){
             </p>
         </AboutBlock>
       </div>  
-      <div className="flex flex-col item-center gap-8 py-24 text-center">
+      <div id="contact" className="flex flex-col item-center gap-8 py-24 text-center">
         <div className="flex flex-col items-center gap-2">
           <p className="text-section font-bold text-text-default">
             Let&apos;s build something together.
