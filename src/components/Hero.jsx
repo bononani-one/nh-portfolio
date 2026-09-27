@@ -31,7 +31,7 @@ export default function Hero(){
             </div>
         </div>
         {/*오른쪽 비주얼 영역*/}
-        <div className="relative flex-1 rounded-xl overflow-hidden min-h-[320px] border border-border"
+        <div className="relative lg:flex-1 w-full rounded-xl overflow-hidden h-[320px] border border-border"
         data-aos="fade-left"
         data-aos-delay="200"
         >
