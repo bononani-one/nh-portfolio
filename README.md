@@ -23,3 +23,7 @@ https://nh-portfolio-three.vercel.app
 ## 디자인 프로세스
 Figma에서 컬러·타이포 디자인 토큰(Variables, Text Styles)을 먼저 정의하고,
 컴포넌트 단위로 설계한 뒤 Next.js로 옮겨 구현했습니다.
+
+
+## 기획 과정
+초기 기획은 [`PLANNING.md`](./PLANNING.md)에 남아있습니다. 실제로 만들면서 플래그십 프로젝트가 2개에서 4개로 늘고, 톤앤매너도 다크모드+글래스모피즘에서 절제된 미니멀 톤으로 방향이 달라졌습니다.
