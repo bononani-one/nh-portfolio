@@ -29,7 +29,7 @@ export default function TvAppCase(){
                     <ul className="flex flex-col gap-3">
                         <li className="text-body text-text-default">
                         <span className="text-point font-bold mr-2">01</span>
-                        레거시 브라우저 — TV 내장 브라우저(구형 WebKit)라 최신 CSS/JS 문법
+                        레거시 브라우저 — TV 내장 브라우저(구형 WebKit)라 최신 CSS 문법
                         다수를 쓸 수 없음
                         </li>
                         <li className="text-body text-text-default">
