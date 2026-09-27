@@ -1,4 +1,5 @@
 import Chip from '@/components/Chip';
+import CodeMockup from './CodeMockup';
 
 export default function Hero(){
     return(
@@ -22,10 +23,11 @@ export default function Hero(){
             </div>
         </div>
         {/*오른쪽 비주얼 영역*/}
-        <div className="relative flex-1 bg-gray-200 rounded-xl overflow-hidden min-h-[320px]">
+        <div className="relative flex-1 rounded-xl overflow-hidden min-h-[320px] border border-border">
             {/*여기 나중에 실제 목업 이미지 들어갈 자리*/}
+            <CodeMockup />
             {/*스탯 카드-이미지 위 우하단에 겹침*/}
-             <div className="absolute bottom-6 right-6 bg-bg-sub rounded-xl p-5 flex gap-6">
+             <div className="absolute bottom-6 right-6 bg-bg-sub rounded-xl p-5 flex gap-6 overflow-visible">
                 <div className="flex flex-col">
                     <span className="text-section font-bold text-text-default">
                     9+
@@ -38,11 +40,14 @@ export default function Hero(){
                     </span>
                     <span className="text-caption text-text-sub">Clients</span>
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col relative group">
                     <span className="text-section font-bold text-text-default">
                     3
                     </span>
                     <span className="text-caption text-text-sub">Platforms</span>
+                    <div className='absolute -bottom-full right-0 mb-2 w-max opacity-0 group-hover:opacity-100 transition-opacity bg-bg-sub border border-border rounded-lg px-3 py-2 pointer-events-none'>
+                        <p className='text-caption text-text-default'>TV App · KIOSK · Responsive Web</p>
+                    </div>
                 </div>
             </div>
         </div>

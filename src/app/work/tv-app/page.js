@@ -10,15 +10,15 @@ export default function TvAppCase(){
             <CaseHero 
                 badge="TV App"
                 title="TV App 멀티클라이언트 플랫폼"
-                summary="롯데·신세계·NS·GS SHOP 등 여러 홈쇼핑사에 공급되는 TV App을, 레거시 브라우저와 리모컨 포커스 제약 안에서 5년째 퍼블리싱하고 있습니다. 같은 플랫폼 안에서 Admin 인터랙션까지 직접 구현했습니다."
+                summary="국내 홈쇼핑 9개사에 공급되는 TV App을, 레거시 브라우저와 리모컨 포커스 제약 안에서 5년째 퍼블리싱하고 있습니다. 같은 플랫폼 안에서 Admin 인터랙션까지 직접 구현했습니다."
+                onAirNote="국내 홈쇼핑 9개사 채널에서 실시간 확인 가능"
             />
 
             <div className="max-w-[1200] mx-auto flex flex-col gap-12 pb-20">
                 <AboutBlock label="Background">
                     <p className="text-body text-text-default max-w-[700px]">
                         디지털 사이니지 업체를 거쳐, 홈쇼핑 플랫폼 회사에 TV App
-            퍼블리셔로 입사해 5년째 재직 중입니다. 롯데·신세계·NS·GS SHOP 등
-            여러 홈쇼핑사에 하나의 플랫폼을 공급하는 구조 안에서, 공통 규칙과
+            퍼블리셔로 입사해 5년째 재직 중입니다. 국내 홈쇼핑 9개사에 하나의 플랫폼을 공급하는 구조 안에서, 공통 규칙과
             고객사별 차이를 함께 다루는 감각을 쌓아왔습니다.
                     </p>
                 </AboutBlock>

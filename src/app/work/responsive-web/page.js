@@ -2,15 +2,18 @@ import Link from "next/link";
 import SubHeader from "@/components/SubHeader";
 import CaseHero from "@/components/CaseHero";
 import AboutBlock from "@/components/AboutBlock";
+import Image from "next/image";
 
 export default function ResponsiveWebCase(){
     return(
         <main className="p-10">
             <SubHeader />
              <CaseHero
+                image="/images/card2_hero.png"
                 badge="Responsive Web"
                 title="솔루션 홍보 홈페이지"
                 summary="자사 솔루션을 알리는 홍보 홈페이지에서, 스크롤 인터랙션부터 게시판 데이터 연동, 문의 접수 로직까지 — 정적 마크업 너머의 영역을 직접 구현했습니다."
+                liveUrl="https://airrbi.com/"
             />
             <div className="max-w-[1200px] mx-auto flex flex-col gap-12 pb-20">
                 <AboutBlock label="Background">
@@ -46,15 +49,40 @@ export default function ResponsiveWebCase(){
                 </ul>
                 </AboutBlock>
 
-                <AboutBlock label="Result">
+                 <AboutBlock label="Result">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="flex flex-col items-center gap-2">
-                        <div className="w-full aspect-video bg-gray-100 rounded-lg" />
-                        <span className="text-caption text-text-sub">[Before]</span>
+                            <div className="relative w-full aspect-video bg-bg-sub rounded-lg overflow-hidden">
+                                <Image
+                                    src="/images/port_before.png"
+                                    alt="2005"
+                                    fill
+                                    className="object-contain p-3"
+                                />
+                            </div>
+                            <span className="text-caption text-text-sub">Before</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
-                        <div className="w-full aspect-video bg-gray-100 rounded-lg" />
-                        <span className="text-caption text-text-sub">After</span>
+                            <div className="relative w-full aspect-video bg-bg-sub rounded-lg overflow-hidden">
+                                <Image
+                                    src="/images/port_after.png"
+                                    alt="2005"
+                                    fill
+                                    className="object-contain p-3"
+                                />
+                                <a
+                                    href="https://airrbi.com/"
+                                    target="_blank"
+                                    rel='noopener noreferrer'
+                                    className='absolute inset-0 flex items-center justify-center bg-bg-default/60'
+                                >
+                                    <span className="text-body font-bold text-text-default">
+                                        실제 서비스 보러가기 →
+                                    </span>
+                                </a>
+                                
+                            </div>
+                            <span className="text-caption text-text-sub">After</span>
                         </div>
                     </div>
                 </AboutBlock>

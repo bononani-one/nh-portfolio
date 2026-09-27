@@ -10,21 +10,25 @@ const projects = [
     badge:"TV App",
     title:"TV App 멀티클라이언트 플랫폼",
     summary:"레거시 브라우저와 리모컨 포커스 제약 안에서 여러 홈쇼핑사에 공급되는 화면 마크업으로 완성",
+    onAirNote: '국내 홈쇼핑 9개사 채널에서 실시간 확인 가능',
   },
   {
     href:'/work/responsive-web',
+    image:'/images/card2_hero.png',
     badge:"Responsive Web",
     title:"솔루션 홍보 홈페이지",
     summary:"인터랙션, 게시판 데이터 연동, 문의 메일 처리까지 화면 넘어 로직까지 직접 구현",
   },
   {
     href:'/work/kiosk',
+    image:'/images/card3_hero.png',
     badge:"KIOSK",
     title:"키오스크 멀티디바이스 설계",
     summary:"다양한 업종 키오스크를 설치 맥락에 맞춰 각기 다르게 설계",
   },
   {
     href: '/work/design-system',
+    image:'/images/card4.png',
     badge:"Design System",
     title:"Ui-system-guide",
     summary:"화면마다 제각각이던 컴포넌트 규칙을 네이밍, 상태 정의부터 체계화한 퍼블리싱 표준문서(진행중)",
@@ -115,7 +119,7 @@ export default function Home(){
                   홈쇼핑 플랫폼 (재직중, 5년차) 
                 </p>
                 <p className="text-body text-text-sub pl-7">
-                  롯데·신세계·NS·GS SHOP 등 TV App 퍼블리싱, 솔루션 홍보
+                  국내 홈쇼핑 9개사에 TV App 퍼블리싱, 솔루션 홍보
         홈페이지·Admin 인터랙션 구현
                 </p>
               </li>

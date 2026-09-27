@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Chip from '@/components/Chip';
 
-export default function ProjectCard({ href, image, badge, title, summary }) {
+export default function ProjectCard({ href, image, badge, title, summary,onAirNote }) {
   return (
     <Link
       href={href}
@@ -10,8 +10,18 @@ export default function ProjectCard({ href, image, badge, title, summary }) {
     >
       <div className="relative aspect-video bg-bg-default rounded-lg overflow-hidden">
         {image && (
-          <Image src={image} alt={title} fill className="object-cover" />
+          <Image src={image} alt={title} fill className="object-cover p-2" />
         )}
+        {onAirNote && (
+            <div className='absolute inset-0 flex items-center justify-center p-8'>
+                <div className='flex items-center gap-2'>
+                    <span className='w-2 h-2 rounded-full bg-point animate-pulse shrink-0' />
+                    <span className='text-caption text-text-default'>{onAirNote}</span>
+                </div>
+            
+            </div>    
+        )}
+        {image && <div className='absolute inset-0 bg-bg-default/30' />}
       </div>
       <Chip tone="accent" className="self-start">
         {badge}

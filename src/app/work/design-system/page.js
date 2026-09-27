@@ -2,12 +2,14 @@ import Link from 'next/link';
 import SubHeader from '@/components/SubHeader';
 import CaseHero from '@/components/CaseHero';
 import AboutBlock from '@/components/AboutBlock';
+import Image from "next/image";
 
 export default function DesignSystemCase() {
   return (
     <main className="p-10">
       <SubHeader />
       <CaseHero
+        image="/images/card4.png"
         badge="Design System"
         title="Ui-system-guide"
         summary="화면마다 제각각이던 컴포넌트 규칙을, 네이밍·상태 정의부터 체계화한 퍼블리싱 표준 문서입니다."
