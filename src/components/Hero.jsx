@@ -6,16 +6,24 @@ export default function Hero(){
     <section id='hero' className='max-w-[1200px] mx-auto w-full flex flex-col lg:flex-row gap-6 py-10'>
         {/*왼쪽 텍스트 컬럼*/}
         <div className='flex flex-col gap-6 lg:w-[620px] shrink-0'>
-            <Chip tone='accent'>Design-to-code</Chip>
-            <h1 className='text-head font-bold text-text-default leading-snug'>
+            <Chip tone='accent' data-aos="fade-up">Design-to-code</Chip>
+            <h1 className='text-head font-bold text-text-default leading-snug'
+             data-aos="fade-up" 
+             data-aos-delay="100">
                 키오스크부터 어드민까지,
                 <br/>
                 화면을 설계하고 코드로 완성합니다.
             </h1>
-            <p className='text-body text-text-sub'>
+            <p className='text-body text-text-sub'
+            data-aos="fade-up"
+            data-aos-delay="200"
+            >
                 디자인과 개발 사이에서, 플랫폼마다 다른 제약을 9년째 풀어왔습니다.
             </p>
-            <div className='flex gap-2'>
+            <div className='flex gap-2'
+             data-aos="fade-up"
+             data-aos-delay="300"
+            >
                 <Chip tone='muted'>Figma</Chip>
                 <Chip tone='muted'>HTML5</Chip>
                 <Chip tone='muted'>Tailwind CSS</Chip>
@@ -23,7 +31,10 @@ export default function Hero(){
             </div>
         </div>
         {/*오른쪽 비주얼 영역*/}
-        <div className="relative flex-1 rounded-xl overflow-hidden min-h-[320px] border border-border">
+        <div className="relative flex-1 rounded-xl overflow-hidden min-h-[320px] border border-border"
+        data-aos="fade-left"
+        data-aos-delay="200"
+        >
             {/*여기 나중에 실제 목업 이미지 들어갈 자리*/}
             <CodeMockup />
             {/*스탯 카드-이미지 위 우하단에 겹침*/}

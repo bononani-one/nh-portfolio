@@ -2,10 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Chip from '@/components/Chip';
 
-export default function ProjectCard({ href, image, badge, title, summary,onAirNote }) {
+export default function ProjectCard({ href, image, badge, title, summary,onAirNote,delay = 0 }) {
   return (
     <Link
       href={href}
+      data-aos="fade-up"
+      data-aos-delay={delay}
       className="bg-bg-sub border border-border rounded-xl p-5 flex flex-col gap-3 transition-shadow hover:shadow-lg active:scale-[0.98]"
     >
       <div className="relative aspect-video bg-bg-default rounded-lg overflow-hidden">

@@ -1,4 +1,4 @@
-export default function Chip({children,tone='accent',dashed=false}){
+export default function Chip({children,tone='accent',dashed=false,...props}){
     const toneClasses=
         tone === 'accent'
         ? 'border-point text-point'
@@ -6,6 +6,7 @@ export default function Chip({children,tone='accent',dashed=false}){
         
     return(
         <span
+            {...props}
             className={`self-start inline-block text-label px-2.5 py-1 rounded-full border ${
             dashed?'border-dashed':''
              } ${toneClasses}`}

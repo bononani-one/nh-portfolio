@@ -1,8 +1,11 @@
 import Chip from '@/components/Chip';
 
-export default function SkillGroup({label,skills}){
+export default function SkillGroup({label,skills,delay=0}){
     return(
-        <div className='bg-bg-sub border border-border rounded-xl p-5 flex flex-col gap-3'>
+        <div className='bg-bg-sub border border-border rounded-xl p-5 flex flex-col gap-3'
+        data-aos="fade-up"
+        data-aos-delay={delay}
+      >
             <span className='text-label text-text-sub'>{label}</span>
             <div className='flex flex-wrap gap-2'>
                 {skills.map((skill)=>(
