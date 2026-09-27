@@ -3,21 +3,28 @@ import SubHeader from '@/components/SubHeader';
 import CaseHero from '@/components/CaseHero';
 import AboutBlock from '@/components/AboutBlock';
 import ResultMiniCard from '@/components/ResultMiniCard';
+import Image from 'next/image';
 
 const results = [
   {
+    image:'/images/card3_02_01.png',
+    image2:'/images/card3_02_02.png',
     title: '새로운 병원 전자명패',
     env: '안드로이드 모니터 · 직접 개발한 관리자 페이지(HTML5·CSS3·jQuery, PHP, MySQL)',
     point:
       '병실 앞에 고정 설치돼 환자·보호자가 스쳐 지나가며 확인하는 화면이라, 정보를 최소화하고 가독성을 최우선으로 설계',
   },
   {
+    image:'/images/card3_04_01.png',
+    image2:'/images/card3_04_02.png',
     title: '부산영산대학교 키오스크',
     env: '스탠드형 DID(PC 타입) · IIS 로컬서버, 키오스크 모드',
     point:
       '학생이 직접 다가와 터치로 조작하는 화면이라, 메뉴 구조와 인터랙션 흐름을 명확히 설계해 원하는 정보까지 쉽게 도달하도록 구성',
   },
   {
+    image:'/images/card3_05_01.png',
+    image2:'/images/card3_05_02.png',
     title: '산본시장 홍보 콘텐츠',
     env: '스탠드형 DID(PC 타입) · IIS 로컬서버, 키오스크 모드',
     point:
@@ -26,11 +33,11 @@ const results = [
 ];
 
 const otherIndustries = [
-  '경기도연천교육지청',
-  '부여문화축제거리',
-  '암웨이',
-  '기아자동차',
-  '서산날씨뉴스',
+  {name:'경기도연천교육지청',image:'/images/card3_07_02.png'},
+  {name:'부여문화축제거리',image:'/images/card3_06_02.png'},
+  {name:'전주공예품전시관',image:'/images/card3_08_02.png'},
+  {name:'기아자동차통근버스',image:'/images/card3_12_02.png'},
+  {name:'서산날씨',image:'/images/card3_01_02.png'},
 ];
 
 export default function KioskCase() {
@@ -38,6 +45,7 @@ export default function KioskCase() {
     <main className="p-10">
       <SubHeader />
       <CaseHero
+        image = '/images/card3_hero.png'
         badge="KIOSK"
         title="키오스크 멀티디바이스 설계"
         summary="병원, 대학, 전통시장, 기업브랜드 등 다양한 업종의 KIOSK를 설치 맥락에 맞춰 각기 다르게 설계했습니다."
@@ -90,10 +98,14 @@ export default function KioskCase() {
               More across industries
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mt-3">
-              {otherIndustries.map((name) => (
-                <div key={name} className="flex flex-col gap-2">
-                  <div className="aspect-square bg-gray-100 rounded-lg" />
-                  <span className="text-caption text-text-sub text-center">{name}</span>
+              {otherIndustries.map((item) => (
+                <div key={item.name} className="flex flex-col gap-2">
+                  <div className="relative aspect-square bg-bg-sub rounded-lg overflow-hidden" >
+                    {item.image && (
+                      <Image src={item.image} alt={item.name} fill className="object-contain p-3" />
+                    )}
+                  </div>
+                  <span className="text-caption text-text-sub text-center">{item.name}</span>
                 </div>
               ))}
             </div>
