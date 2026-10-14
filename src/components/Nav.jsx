@@ -10,7 +10,7 @@ export default function Nav(){
             <div className="flex items-center gap-8">
                 <nav className="flex gap-8">
                     <a href="#work" className="text-caption text-text-sub">Work</a>
-                    <a href="#skill" className="text-caption text-text-sub">SKill</a>
+                    <a href="#skill" className="text-caption text-text-sub">Skill</a>
                     <a href="#about" className="text-caption text-text-sub">About</a>
                     <a href="#contact" className="text-caption text-text-sub">Contact</a>
                 </nav>

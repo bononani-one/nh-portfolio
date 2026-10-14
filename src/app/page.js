@@ -154,7 +154,7 @@ export default function Home(){
           <p className="text-section font-bold text-text-default">
             Let&apos;s build something together.
           </p>
-          <p className="text-caption text-text-sub">함깨 일할 준비가 되어있습니다.</p>
+          <p className="text-caption text-text-sub">함께 일할 준비가 되어있습니다.</p>
         </div>
       </div>
         <a href="mailto:asuka422@naver.com"
