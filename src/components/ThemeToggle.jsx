@@ -18,18 +18,28 @@ export default function ThemeToggle() {
     setIsDark(next);
     document.documentElement.classList.toggle('dark', next);
     localStorage.setItem('theme', next ? 'dark' : 'light');
+    document.activeElement.blur();
   }
 
+  const label = isDark ? '라이트 모드로 전환' : '다크 모드로 전환';
+
   return (
-    <button
-      onClick={toggleTheme}
-      className="w-9 h-5 rounded-full bg-border relative shrink-0"
-    >
+    <div className='relative group'>
+      <button
+        onClick={toggleTheme}
+        aria-label={label}
+        className="w-9 h-5 rounded-full bg-border relative shrink-0 cursor-pointer"
+      >
+        <span
+          className={`absolute top-0.5 w-4 h-4 rounded-full bg-point transition-all ${
+            isDark ? 'left-4' : 'left-0.5'
+          }`}
+        />
+      </button>
       <span
-        className={`absolute top-0.5 w-4 h-4 rounded-full bg-point transition-all ${
-          isDark ? 'left-4' : 'left-0.5'
-        }`}
-      />
-    </button>
+        role='tooltip'
+        className='absolute right-0 top-full mt-2 whitespace-nowrap rounded-md border border-border bg-bg-sub px-2 py-1 text-caption text-text-sub opacity-0 pointer-events-none transition-opacity group-hover:opacity-100 group-focus-within:opacity-100'
+        >{label}</span>
+    </div>
   );
 }
